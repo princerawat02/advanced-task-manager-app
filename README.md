@@ -39,6 +39,7 @@ pnpm dev
 pnpm build
 pnpm preview
 ## Live Demo
+```
 
-You can view the live application at [https://advanced-task-manager-app-git-main-iamprincer3-9901s-projects.vercel.app/](https://advanced-task-manager-app-git-main-iamprincer3-9901s-projects.vercel.app/)
+You can view the live application at [https://princerawat02.github.io/advanced-task-manager-app/](https://princerawat02.github.io/advanced-task-manager-app/)
 

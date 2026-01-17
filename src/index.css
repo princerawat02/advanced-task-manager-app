@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --shadow-soft-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-soft-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-soft-lg: 0 12px 24px rgba(0, 0, 0, 0.1);
+
+  @keyframes task-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes task-exit {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+  }
+  @keyframes checkbox-bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  --animate-task-enter: task-enter 0.3s ease-out forwards;
+  --animate-task-exit: task-exit 0.2s ease-in forwards;
+  --animate-checkbox-bounce: checkbox-bounce 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.21 0.006 285.885);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.006 285.885);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.006 285.885);
+  --primary: oklch(0.514 0.213 259.698);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.514 0.213 259.698);
+}
+
+.dark {
+  --background: oklch(0.129 0.012 286.115);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.184 0.01 286.115);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.184 0.01 286.115);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.627 0.194 259.269);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.25 0.01 286.115);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.25 0.01 286.115);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.25 0.01 286.115);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.627 0.194 30.33);
+  --border: oklch(0.25 0.01 286.115);
+  --input: oklch(0.25 0.01 286.115);
+  --ring: oklch(0.627 0.194 259.269);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+
+@layer utilities {
+  .animate-task-enter {
+    animation: task-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-task-exit {
+    animation: task-exit 0.3s ease-in forwards;
+  }
+}
+
+@keyframes task-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes task-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+  }
+}
